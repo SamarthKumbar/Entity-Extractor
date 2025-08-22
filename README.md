@@ -110,18 +110,4 @@ The FastAPI backend provides the following endpoints:
 - `POST /api/ask_pdf` - Ask questions about uploaded PDF documents
 - `GET /docs` - Interactive API documentation
 
-## Contributing
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Support
-
-If you encounter any issues or have questions, please open an issue on the GitHub repository.
