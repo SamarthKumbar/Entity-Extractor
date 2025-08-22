@@ -1,72 +1,27 @@
-# Financial Document Entity Extractor
-
-A FastAPI + Streamlit application that extracts entities from financial documents (`PDF`, `TXT`, `DOCX`) and provides a chat interface for PDFs using a Retrieval-Augmented Generation (RAG) approach.
-
----
-
-## Features
-
-- **Multi-format support**: `.pdf`, `.txt`, `.docx`  
-- **Entity Extraction**: Counterparty, Date, Notional, Underlying, PaymentFrequency, Coupon/Spread, ISIN  
-- **RAG Chat for PDFs**: Ask questions dynamically about uploaded PDF content  
-- **Backend**: FastAPI  
-- **Frontend**: Streamlit  
-- **Embeddings**: HuggingFace Sentence Transformers  
-- **LLM**: Groq-compatible `llama-3.3-70b-versatile`  
-
----
-
-## Project Structure
-
+Financial Document Entity ExtractorThis project is a web application designed to extract key financial entities from uploaded documents (.pdf, .docx, .txt). It uses a FastAPI backend for document processing and a Streamlit frontend for the user interface.FeaturesFile Upload: Supports PDF, DOCX, and plain text documents.Entity Extraction: Uses regex and other pipeline methods to extract financial data.Interactive UI: A Streamlit dashboard to upload files and view extracted results.Q&A on PDFs: Allows users to ask specific questions about the content of uploaded PDF documents.Project StructureThe project is organized into a backend (app) and a frontend (frontend) directory, ensuring a clean separation of concerns..
 ├── app/
-│ ├── api/ # FastAPI endpoints
-│ ├── pipelines/ # Extraction pipelines (PDF, NER, Regex)
-│ └── utils/ # Utility functions (file type detection, etc.)
-├── frontend/ # Streamlit app
-├── venv/ # Virtual environment (ignored in git)
-├── .env # API keys (ignored in git)
-├── main.py # FastAPI main file
-├── requirements.txt # Python dependencies
-└── README.md
-
-##
-
----
-
-## Installation
-
-1. Clone the repo:
-
-```bash
-git clone https://github.com/your-username/financial-doc-extractor.git
-cd financial-doc-extractor
-Create and activate a virtual environment:
-
+│   ├── api/              # FastAPI endpoint definitions
+│   ├── pipelines/        # Extraction pipelines (PDF, NER, Regex)
+│   └── utils/            # Utility functions (e.g., file type detection)
+├── frontend/
+│   └── app.py            # The Streamlit application code
+├── .env                  # Environment variables (API keys, etc.) - ignored by git
+├── main.py               # Main FastAPI application entry point
+├── requirements.txt      # Python dependencies
+└── README.md             # This file
+Setup and InstallationFollow these steps to set up and run the project locally.1. Clone the Repositorygit clone <your-repository-url>
+cd <your-project-directory>
+2. Create and Activate a Virtual EnvironmentIt's highly recommended to use a virtual environment to manage project dependencies.# Create the virtual environment
 python -m venv venv
-source venv/bin/activate  # Linux / macOS
-venv\Scripts\activate     # Windows
-Install dependencies:
 
-bash
-Copy
-Edit
-pip install -r requirements.txt
-
-Create a .env file with your Groq/OpenAI API key:
-
-API_KEY=your_api_key_here
-Running the Backend
-
-uvicorn main:app --reload --port 8001
-Upload files: POST /api/upload
-
-Ask questions for PDFs: POST /api/ask_pdf
-
-Running the Frontend
-
-streamlit run frontend/app.py
-Upload your financial document
-
-If PDF, ask questions dynamically in the chat interface
-
-```
+# Activate it
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+3. Install DependenciesInstall all the required Python packages from the requirements.txt file.pip install -r requirements.txt
+4. Environment VariablesCreate a file named .env in the root directory of the project. This file will hold your secret keys and configurations. Add any necessary API keys or configuration variables here.Example .env file:# .env
+SOME_API_KEY="your_api_key_here"
+UsageYou need to run the backend (FastAPI) and the frontend (Streamlit) in separate terminal sessions.1. Run the Backend (FastAPI)Open a terminal, activate your virtual environment, and run the following command from the project's root directory:uvicorn main:app --host 0.0.0.0 --port 8001 --reload
+main:app: Tells uvicorn to look for an object named app in the main.py file.--host 0.0.0.0: Makes the server accessible on your local network.--port 8001: Runs the server on port 8001.--reload: The server will automatically restart when you make changes to the code.The API will be available at http://localhost:8001. You can view the auto-generated documentation at http://localhost:8001/docs.2. Run the Frontend (Streamlit)Open a second terminal, activate the same virtual environment, and run the Streamlit app:streamlit run frontend/app.py
+Your web browser should automatically open a new tab with the application running. If not, you can access it at the
