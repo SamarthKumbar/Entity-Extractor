@@ -48,7 +48,7 @@ python -m venv venv
 
 # Activate it
 # On Windows:
-venv\Scriptsctivate
+venv\Scripts\activate
 # On macOS/Linux:
 source venv/bin/activate
 ```
