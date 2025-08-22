@@ -29,9 +29,7 @@ A FastAPI + Streamlit application that extracts entities from financial document
 ├── requirements.txt # Python dependencies
 └── README.md
 
-yaml
-Copy
-Edit
+##
 
 ---
 
