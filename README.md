@@ -13,19 +13,19 @@ This project is a web application designed to extract key financial entities fro
 
 The project is organized into a backend (`app`) and a frontend (`frontend`) directory, ensuring a clean separation of concerns.
 
+```
 .
 ├── app/
-│ ├── api/ # FastAPI endpoint definitions
-│ ├── pipelines/ # Extraction pipelines (PDF, NER, Regex)
-│ └── utils/ # Utility functions (e.g., file type detection)
+│   ├── api/              # FastAPI endpoint definitions
+│   ├── pipelines/        # Extraction pipelines (PDF, NER, Regex)
+│   └── utils/            # Utility functions (e.g., file type detection)
 ├── frontend/
-│ └── app.py # The Streamlit application code
-├── .env # Environment variables (API keys, etc.) - ignored by git
-├── main.py # Main FastAPI application entry point
-├── requirements.txt # Python dependencies
-└── README.md # This file
-
-text
+│   └── app.py            # The Streamlit application code
+├── .env                  # Environment variables (API keys, etc.) - ignored by git
+├── main.py               # Main FastAPI application entry point
+├── requirements.txt      # Python dependencies
+└── README.md             # This file
+```
 
 ## Setup and Installation
 
@@ -33,34 +33,33 @@ Follow these steps to set up and run the project locally.
 
 ### 1. Clone the Repository
 
+```bash
 git clone <your-repository-url>
 cd <your-project-directory>
-
-text
+```
 
 ### 2. Create and Activate a Virtual Environment
 
 It's highly recommended to use a virtual environment to manage project dependencies.
 
-Create the virtual environment
+```bash
+# Create the virtual environment
 python -m venv venv
 
-Activate it
-On Windows:
-venv\Scripts\activate
-
-On macOS/Linux:
+# Activate it
+# On Windows:
+venv\Scriptsctivate
+# On macOS/Linux:
 source venv/bin/activate
-
-text
+```
 
 ### 3. Install Dependencies
 
 Install all the required Python packages from the requirements.txt file.
 
+```bash
 pip install -r requirements.txt
-
-text
+```
 
 ### 4. Environment Variables
 
@@ -68,10 +67,10 @@ Create a file named `.env` in the root directory of the project. This file will 
 
 Example `.env` file:
 
-.env
+```env
+# .env
 SOME_API_KEY="your_api_key_here"
-
-text
+```
 
 ## Usage
 
@@ -81,9 +80,9 @@ You need to run the backend (FastAPI) and the frontend (Streamlit) in separate t
 
 Open a terminal, activate your virtual environment, and run the following command from the project's root directory:
 
+```bash
 uvicorn main:app --host 0.0.0.0 --port 8001 --reload
-
-text
+```
 
 **Parameters explanation:**
 - `main:app`: Tells uvicorn to look for an object named `app` in the `main.py` file
@@ -97,9 +96,9 @@ The API will be available at http://localhost:8001. You can view the auto-genera
 
 Open a second terminal, activate the same virtual environment, and run the Streamlit app:
 
+```bash
 streamlit run frontend/app.py
-
-text
+```
 
 Your web browser should automatically open a new tab with the application running. If not, you can access it at http://localhost:8501.
 
@@ -126,16 +125,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Support
 
 If you encounter any issues or have questions, please open an issue on the GitHub repository.
-This markdown format provides:
-
-Proper heading hierarchy with #, ##, ###
-
-Code blocks with syntax highlighting
-
-Bullet points and numbered lists
-
-Proper formatting for file paths and directory structure
-
-Clear sections for setup, usage, and project information
-
-Additional sections like Contributing, License, and Support that are common in README files
